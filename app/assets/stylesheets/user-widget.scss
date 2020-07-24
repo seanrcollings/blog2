@@ -1,0 +1,10 @@
+@import "variables";
+
+.user-widget {
+  background-color: $soft_grey;
+  width: 300px;
+  height: 75px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

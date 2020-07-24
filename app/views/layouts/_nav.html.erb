@@ -1,0 +1,62 @@
+<nav>
+    <div class="nav-me">
+        <div id="flip-card" class="flip-card" onclick="flipCard()" title="psssst, Click Me!">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                <%= image_tag "me.png"%><br>
+                </div>
+                <div class="flip-card-back">
+                    <div class="flip-card-content">
+                        <h3>About</h3>
+                        <ul>
+                        <li>Attending USU </li>
+                        <li>❤️ Programming</li>
+                        <li>❤️ Video Games</li>
+                        <li>❤️ Reading</li>
+                        <li>❤️ Writing</li>
+                        <li>❤️ You!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span>Welcome To My Dumb Blog!</span>
+    </div>
+
+
+    <div class="nav-items">
+    <div class="nav-item">
+        <%= link_to posts_path do%>
+        <%= fa_icon "th-large"%> Posts
+        <% end %>
+    </div>
+    <% if user_signed_in?%>
+        <div class="nav-item">
+        <%= link_to destroy_user_session_path, method: :delete  do%>
+            <%= fa_icon "sign-out"%> Sign Out
+        <% end %>
+        </div>
+    <% else %>
+        <div class="nav-item">
+        <%= link_to new_user_session_path do %>
+        <%= fa_icon "sign-in"%> Sign In
+        <% end %>
+        </div>
+    <% end %>
+    </div>
+    <div class="nav-bottom">
+    <span>&bull; <a href="https://www.seanrcollings.com">My Website</a> </span>
+    <span>&bull; <a href="">Source Code</a> &bull;</span>
+    </div>
+</nav>
+<script>
+    function flipCard() {
+        var element = document.getElementsByClassName("flip-card-inner")[0];
+        if (element.classList.contains("flipped")) {
+            element.classList.remove("flipped")
+        } else {
+            element.classList.add("flipped")
+        }
+    }
+</script>

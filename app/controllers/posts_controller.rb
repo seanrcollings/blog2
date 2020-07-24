@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  protect_from_forgery
+  before_action :authenticate_user!
+
   def index
     @posts = Post.all
   end

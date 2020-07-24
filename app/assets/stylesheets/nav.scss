@@ -1,0 +1,66 @@
+@import "variables";
+
+nav {
+  flex-basis: 400px;
+  flex-shrink: 0;
+  min-width: 100px;
+  background-color: $soft_grey;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $green;
+    }
+  }
+
+  .nav {
+    &-me {
+      width: 100%;
+      flex-shrink: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .flip-card {
+        margin: 20px 0px;
+      }
+    }
+
+    &-items {
+      flex: 1 0 auto;
+      width: 100%;
+    }
+
+    &-item {
+      width: 100%;
+
+      a {
+        display: block;
+        width: 100%;
+        font-size: 40px;
+        padding: 5px;
+
+        &:hover {
+          background-color: white;
+          border-radius: 2px;
+          box-shadow: 0px 0px 94px -25px white;
+        }
+      }
+    }
+
+    &-bottom {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0px;
+    }
+  }
+}

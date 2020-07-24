@@ -1,0 +1,18 @@
+@import "variables";
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  color: $soft_grey;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+}
+
+.content {
+  padding: 0px 100px;
+}
