@@ -3,18 +3,18 @@
         <div id="flip-card" class="flip-card" onclick="flipCard()" title="psssst, Click Me!">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                <%= image_tag "me.png"%><br>
+                    <%= image_tag "me.png"%>
                 </div>
                 <div class="flip-card-back">
                     <div class="flip-card-content">
                         <h3>About</h3>
                         <ul>
-                        <li>Attending USU </li>
-                        <li>❤️ Programming</li>
-                        <li>❤️ Video Games</li>
-                        <li>❤️ Reading</li>
-                        <li>❤️ Writing</li>
-                        <li>❤️ You!</li>
+                            <li>Attending USU </li>
+                            <li>❤️ Programming</li>
+                            <li>❤️ Video Games</li>
+                            <li>❤️ Reading</li>
+                            <li>❤️ Writing</li>
+                            <li>❤️ You!</li>
                         </ul>
                     </div>
                 </div>
@@ -31,6 +31,12 @@
         <%= fa_icon "th-large"%> Posts
         <% end %>
     </div>
+    <div class="nav-item">
+        <%= link_to welcome_index_path do%>
+        <%= fa_icon "info-circle"%> About
+        <% end %>
+    </div>
+
     <% if user_signed_in?%>
         <div class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete  do%>
