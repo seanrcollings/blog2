@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   protect_from_forgery
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = Post.order(id: :desc)
@@ -8,7 +8,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    puts @post.comments
   end
 
   def new
@@ -21,6 +20,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.add_tags params[:tags]
+
     if @post.save
       redirect_to @post
     else
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.add_tags params[:tags]
 
     if @post.update(post_params)
       redirect_to @post

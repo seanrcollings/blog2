@@ -2,25 +2,25 @@
 
   <%= render "shared/error_explanation", model: @post%>
   <div class="post-new-field">
-  <%= form.label :title %><br>
-  <%= form.text_field :title %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
   </div>
 
   <div class="post-new-field">
-  <%= form.label :tldr %><br>
-  <%= form.text_area :tldr %>
+    <%= form.label :tldr, "TLDR" %><br>
+    <%= form.text_area :tldr %>
   </div>
 
   <div class="post-new-field">
-  <%= form.label :text %><br>
-  <%= form.rich_text_area :text %>
+    <%= form.label :text %><br>
+    <%= form.rich_text_area :text %>
   </div>
 
-
-
-
+  <div class="post-new-field">
+    <%= form.label :tags %><br>
+    <%= form.text_field :tags, value:  @post.tags.map {|tag| tag.name}.join(", "), name: "tags" %>
+  </div>
 
   <%= form.submit %>
-
 
 <% end %>

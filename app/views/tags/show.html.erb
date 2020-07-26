@@ -1,8 +1,12 @@
-
 <div class="tag flexible">
     <h2>All posts with the
         <span class="tag-name"><%= @tag.name%></span> tag
     </h2>
+
+    <% if user_signed_in? %>
+        <%= link_to "Edit Tag", edit_tag_path %>
+    <% end %>
+
     <% @tag.posts.each do |post| %>
         <%= render "posts/post", post: post%>
     <% end %>

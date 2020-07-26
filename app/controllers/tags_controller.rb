@@ -11,10 +11,24 @@ class TagsController < ApplicationController
     @tag = Tag.new
   end
 
+  def edit
+    @tag = Tag.find_by(name: params[:name])
+  end
+
   def create
     @tag = Tag.new(tag_params)
 
     if @tag.save
+      redirect_to tags_path
+    else
+      render "new"
+    end
+  end
+
+  def update
+    @tag = Tag.find_by(name: params[:name])
+
+    if @tag.update(tag_params)
       redirect_to tags_path
     else
       render "new"

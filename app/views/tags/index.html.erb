@@ -1,4 +1,7 @@
 <div class="tags flexible">
     <h2>All Tags</h2>
-    <%= render @tags %>
+    <%= link_to "New Tag", new_tag_path %>
+    <div>
+        <%= render @tags %>
+    </div>
 </div>

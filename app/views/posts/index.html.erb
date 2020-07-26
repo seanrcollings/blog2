@@ -1,6 +1,8 @@
 <div class="posts flexible">
-  <h1>Listing Posts</h1>
-  <%= link_to "New Post", new_post_path%>
+  <h1>All Posts</h1>
+  <% if user_signed_in? %>
+    <%= link_to "New Post", new_post_path%>
+  <% end %>
 
   <%= render @posts%>
 
