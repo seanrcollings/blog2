@@ -1,0 +1,20 @@
+<%= form_with model: @tag, local: true do |form| %>
+
+  <%= render "shared/error_explanation", model: @tag%>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :color %><br>
+    <%= form.text_field :color %>
+    <span>Must be a valid Hex code</span>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

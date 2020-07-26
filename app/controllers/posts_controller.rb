@@ -3,11 +3,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    @posts = Post.order(id: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
+    puts @post.comments
   end
 
   def new
@@ -47,6 +48,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:title, :text, :tldr)
   end
 end

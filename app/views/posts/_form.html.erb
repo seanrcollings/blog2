@@ -1,31 +1,26 @@
 <%= form_with model: @post, local: true do |form| %>
 
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_explanation", model: @post%>
+  <div class="post-new-field">
+  <%= form.label :title %><br>
+  <%= form.text_field :title %>
+  </div>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+  <div class="post-new-field">
+  <%= form.label :tldr %><br>
+  <%= form.text_area :tldr %>
+  </div>
 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.rich_text_area :text %>
-  </p>
+  <div class="post-new-field">
+  <%= form.label :text %><br>
+  <%= form.rich_text_area :text %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+
+
+
+
+  <%= form.submit %>
+
 
 <% end %>

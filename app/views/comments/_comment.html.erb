@@ -1,15 +1,17 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<div class="comment">
+  <div class="comment-user">
+    <%= comment.user.email %>
+    <span class="comment-user-time">
+      <%= comment.updated_at.strftime("%m/%d/%Y | %I:%M %P") %>
+    </span>
+  </div>
+  <div class="comment-text">
+    <%= comment.body %>
+  </div>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+  <span>
+    <%= link_to 'Destroy Comment', [comment.post, comment],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </span>
+</div>

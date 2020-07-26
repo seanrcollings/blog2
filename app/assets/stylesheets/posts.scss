@@ -4,17 +4,43 @@
 }
 
 .post {
-  &-preview {
-    color: $soft-grey !important;
-    width: 90%;
-    text-align: left;
-    border-bottom: 1px dashed lightgrey;
-    padding: 10px 10px 0px 10px;
+  display: flex;
+  margin-bottom: 20px;
+  &-content {
+    width: 80%;
+    padding-right: 30px;
 
-    &:hover {
-      cursor: pointer;
-      text-decoration: none !important;
-      background-color: rgb(173, 172, 172);
+    &-text {
+      * {
+        font-size: 20px;
+        line-height: 30px;
+      }
     }
+  }
+
+  &-sidebar {
+    width: 20%;
+  }
+
+  &-new {
+    width: 100%;
+
+    &-field {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.post-preview {
+  color: $soft-grey !important;
+  width: 90%;
+  text-align: left;
+  border-bottom: 1px dashed lightgrey;
+  padding: 10px 10px 0px 10px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none !important;
+    background-color: rgb(173, 172, 172);
   }
 }

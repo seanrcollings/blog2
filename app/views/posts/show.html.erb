@@ -1,19 +1,38 @@
 <%= link_to "All Posts", posts_path%>
-<p>
-  <strong>Title: </strong>
-  <%= @post.title %>
-</p>
+<div class="post">
+  <div class="post-content">
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Delete', post_path(@post),
+                methdod: :delete,
+                data: {confirm: "Are you sure?"} %>
+    <h1><%= @post.title %></h1>
 
-<p>
-  <strong>Text: </strong>
-  <%= @post.text %>
-</p>
 
-<h2>Comments</h2>
-<%= render @post.comments %>
+    <div class="post-content-text">
+      <%= @post.text %>
+    </div>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+
+    <h2>Comments</h2>
+    <%= render @post.comments %>
+  </div>
+
+  <div class="post-sidebar">
+    <% if @post.tldr %>
+      <div class="post-sidebar-tldr">
+        <h2>TL;DR</h2>
+        <%= @post.tldr %>
+      </div>
+    <% end %>
+
+    <div class="post-sidebar-tags">
+      <h2>Tags</h2>
+      <%= render @post.tags%>
+    </div>
+
+  </div>
+
+</div>

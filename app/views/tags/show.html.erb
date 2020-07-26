@@ -1,0 +1,9 @@
+
+<div class="tag flexible">
+    <h2>All posts with the
+        <span class="tag-name"><%= @tag.name%></span> tag
+    </h2>
+    <% @tag.posts.each do |post| %>
+        <%= render "posts/post", post: post%>
+    <% end %>
+</div>
