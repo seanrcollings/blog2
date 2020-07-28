@@ -1,6 +1,8 @@
 <div class="tags flexible">
     <h2>All Tags</h2>
-    <%= link_to "New Tag", new_tag_path %>
+    <% if user_signed_in? %>
+        <%= link_to "New Tag", new_tag_path %>
+    <% end %>
     <div>
         <%= render @tags %>
     </div>

@@ -14,7 +14,6 @@
                             <li>❤️ Video Games</li>
                             <li>❤️ Reading</li>
                             <li>❤️ Writing</li>
-                            <li>❤️ You!</li>
                         </ul>
                     </div>
                 </div>
@@ -28,25 +27,31 @@
     <div class="nav-items">
     <div class="nav-item">
         <%= link_to posts_path do%>
-        <%= fa_icon "th-large"%> Posts
+        <span><%= fa_icon "th-large"%> Posts</span>
+        <% end %>
+    </div>
+    <div class="nav-item">
+        <%= link_to tags_path do%>
+        <span><%= fa_icon "tags"%> Tags</span>
         <% end %>
     </div>
     <div class="nav-item">
         <%= link_to welcome_index_path do%>
-        <%= fa_icon "info-circle"%> About
+        <span><%= fa_icon "info-circle"%> About</span>
         <% end %>
     </div>
+
 
     <% if user_signed_in?%>
         <div class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete  do%>
-            <%= fa_icon "sign-out"%> Sign Out
+            <span><%= fa_icon "sign-out"%> Sign Out</span>
         <% end %>
         </div>
     <% else %>
         <div class="nav-item">
         <%= link_to new_user_session_path do %>
-        <%= fa_icon "sign-in"%> Sign In
+            <span><%= fa_icon "sign-in"%> Sign In</span>
         <% end %>
         </div>
     <% end %>
