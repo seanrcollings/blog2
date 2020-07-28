@@ -25,36 +25,36 @@
 
 
     <div class="nav-items">
-    <div class="nav-item">
-        <%= link_to posts_path do%>
-        <span><%= fa_icon "th-large"%> Posts</span>
-        <% end %>
-    </div>
-    <div class="nav-item">
-        <%= link_to tags_path do%>
-        <span><%= fa_icon "tags"%> Tags</span>
-        <% end %>
-    </div>
-    <div class="nav-item">
-        <%= link_to welcome_index_path do%>
-        <span><%= fa_icon "info-circle"%> About</span>
-        <% end %>
-    </div>
+        <div class="nav-item">
+            <%= link_to posts_path do%>
+            <span><%= fa_icon "th-large"%> Posts</span>
+            <% end %>
+        </div>
+        <div class="nav-item">
+            <%= link_to tags_path do%>
+            <span><%= fa_icon "tags"%> Tags</span>
+            <% end %>
+        </div>
+        <div class="nav-item">
+            <%= link_to about_path do%>
+            <span><%= fa_icon "info-circle"%> About</span>
+            <% end %>
+        </div>
 
 
-    <% if user_signed_in?%>
-        <div class="nav-item">
-        <%= link_to destroy_user_session_path, method: :delete  do%>
-            <span><%= fa_icon "sign-out"%> Sign Out</span>
+        <% if user_signed_in?%>
+            <div class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete  do%>
+                <span><%= fa_icon "sign-out"%> Sign Out</span>
+            <% end %>
+            </div>
+        <% else %>
+            <div class="nav-item">
+            <%= link_to new_user_session_path do %>
+                <span><%= fa_icon "sign-in"%> Sign In</span>
+            <% end %>
+            </div>
         <% end %>
-        </div>
-    <% else %>
-        <div class="nav-item">
-        <%= link_to new_user_session_path do %>
-            <span><%= fa_icon "sign-in"%> Sign In</span>
-        <% end %>
-        </div>
-    <% end %>
     </div>
     <div class="nav-bottom">
     <span>&bull; <a href="https://www.seanrcollings.com">My Website</a> </span>
@@ -71,3 +71,42 @@
         }
     }
 </script>
+
+<div class="nav-mobile">
+    <div class="nav-mobile-items">
+        <div class="nav-mobile-left">
+            <div class="nav-mobile-item">
+                <%= link_to posts_path do%>
+                <span><%= fa_icon "th-large"%> Posts</span>
+                <% end %>
+            </div>
+            <div class="nav-mobile-item">
+                <%= link_to tags_path do%>
+                <span><%= fa_icon "tags"%> Tags</span>
+                <% end %>
+            </div>
+            <div class="nav-mobile-item">
+                <%= link_to about_path do%>
+                <span><%= fa_icon "info-circle"%> About</span>
+                <% end %>
+            </div>
+        </div>
+
+
+        <div class="nav-mobile-right">
+            <% if user_signed_in?%>
+                <div class="nav-mobile-item">
+                <%= link_to destroy_user_session_path, method: :delete  do%>
+                    <span><%= fa_icon "sign-out"%> Sign Out</span>
+                <% end %>
+                </div>
+            <% else %>
+                <div class="nav-mobile-item">
+                <%= link_to new_user_session_path do %>
+                    <span><%= fa_icon "sign-in"%> Sign In</span>
+                <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

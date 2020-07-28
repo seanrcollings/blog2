@@ -80,6 +80,36 @@ nav {
   }
 }
 
+.nav-mobile {
+  display: none;
+  background-color: $soft-grey;
+  width: 100%;
+  height: 50px;
+
+  &-items {
+    display: flex;
+    height: 50px;
+  }
+
+  &-left {
+    display: flex;
+    margin-right: auto;
+  }
+
+  &-right {
+    display: flex;
+  }
+
+  &-item {
+    margin: 10px;
+    line-height: 30px;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
 @media only screen and (max-width: 900px) {
   nav {
     width: 200px;
@@ -109,5 +139,17 @@ nav {
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: block;
+    position: fixed;
+    top: 0;
   }
 }

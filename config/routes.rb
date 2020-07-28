@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
-  get "welcome/index"
 
+  get "/posts/recent", to: "posts#recent"
+  get "/posts/search", to: "posts#search"
   resources :posts do
     resources :comments
   end
+
+  get "/tags/search", to: "tags#search"
   resources :tags, param: :name
 
-  root "welcome#index"
+  get "/about", to: "about#index"
+  root "posts#recent"
 end
 
 # == Route Map

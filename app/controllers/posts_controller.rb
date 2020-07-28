@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   protect_from_forgery
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :recent, :search]
 
   def index
     @posts = Post.order(id: :desc)
@@ -45,6 +45,18 @@ class PostsController < ApplicationController
     @post.destroy
 
     redirect_to posts_path
+  end
+
+  def recent
+    @post = Post.order(updated_at: :desc).first
+    render "posts/show"
+  end
+
+  def search
+    if params[:q] and params[:q].length > 0
+      @param = params[:q].downcase
+      @posts = Post.all.where("lower(title) LIKE :search", search: "%#{@param}%")
+    end
   end
 
   private

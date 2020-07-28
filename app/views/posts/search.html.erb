@@ -1,0 +1,17 @@
+<div class="posts-search flexible">
+    <% if @param%>
+        <h1>Search Results for <span class="green"><%= @param.upcase %></span> </h1>
+    <% else %>
+    <h1>Search</h1>
+    <% end %>
+
+    <%= form_with(url: "/posts/search", method: :get, local: true) do %>
+        <%= text_field_tag(:q, @param, placeholder: "Search") %>
+    <% end %>
+
+    <% if not @posts or @posts.length == 0%>
+        <h3>Nothing here...</h3>
+    <% elsif @posts %>
+        <%= render @posts %>
+    <% end %>
+</div>

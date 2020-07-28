@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   protect_from_forgery
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     @tags = Tag.all
@@ -35,6 +35,13 @@ class TagsController < ApplicationController
       redirect_to tags_path
     else
       render "new"
+    end
+  end
+
+  def search
+    if params[:q] and params[:q].length > 0
+      @param = params[:q].downcase
+      @tags = Tag.all.where("lower(name) LIKE :search", search: "%#{@param}%")
     end
   end
 

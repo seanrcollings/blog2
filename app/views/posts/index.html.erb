@@ -1,8 +1,9 @@
 <div class="posts flexible">
   <h1>All Posts</h1>
   <% if user_signed_in? %>
-    <%= link_to "New Post", new_post_path%>
+    <%= link_to "New Post", new_post_path %>
   <% end %>
+  <%= link_to "Search Posts", posts_search_path %>
 
   <%= render @posts%>
 

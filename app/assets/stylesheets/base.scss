@@ -122,8 +122,19 @@ form {
   }
 }
 
+span.green {
+  color: $green;
+}
+
 @media only screen and (max-width: 900px) {
   .content-wrapper {
     margin-left: 200px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .content-wrapper {
+    margin-left: 0px;
+    padding: 50px;
   }
 }
