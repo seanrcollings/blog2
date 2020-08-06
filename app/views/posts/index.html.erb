@@ -5,6 +5,9 @@
   <% end %>
   <%= link_to "Search Posts", posts_search_path %>
 
-  <%= render @posts%>
-
+   <% if @posts.length == 0%>
+        <span>Appears to be empty at the moment</span>
+    <% else %>
+        <%= render @posts %>
+    <% end %>
 </div>

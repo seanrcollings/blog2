@@ -49,7 +49,9 @@ class PostsController < ApplicationController
 
   def recent
     @post = Post.order(updated_at: :desc).first
-    render "posts/show"
+    if not @post
+      redirect_to about_path
+    end
   end
 
   def search

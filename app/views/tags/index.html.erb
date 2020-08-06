@@ -5,6 +5,10 @@
     <% end %>
     <%= link_to "Search Tags", tags_search_path %>
     <div>
-        <%= render @tags %>
+        <% if @tags.length == 0%>
+            <span>Appears to be empty at the moment</span>
+        <% else %>
+            <%= render @tags %>
+        <% end %>
     </div>
 </div>
